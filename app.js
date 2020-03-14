@@ -15,9 +15,21 @@ form.addEventListener('submit', e => {
         }
     });
 
-    document.querySelector('div.result > div > p > span').textContent = `${Math.round(100*(score / userAnswers.length))}%`;
+    //document.querySelector('div.result > div > p > span').textContent = `${Math.round(100*(score / userAnswers.length))}%`;
 
     result.classList.remove('d-none');
 
     scrollTo({ top: 0, behavior: 'smooth' });
+
+    let output = 0;
+    let correctPersent = Math.round(100*(score / userAnswers.length));
+    
+    const timer = setInterval(() => {
+        document.querySelector('div.result > div > p > span').textContent = `${output}%`;
+        if(output === correctPersent){
+            clearTimeout(timer);
+        } else {
+            output++;
+        }
+    }, 10);
 });
