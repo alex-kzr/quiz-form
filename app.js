@@ -1,5 +1,6 @@
 const correctAnswers = ['B', 'D', 'B', 'B'];
 const form = document.querySelector('.quiz-form');
+const result = document.querySelector('.result');
 
 form.addEventListener('submit', e => {
     e.preventDefault();
@@ -14,5 +15,7 @@ form.addEventListener('submit', e => {
         }
     });
 
-    console.log(score);
+    document.querySelector('div.result > div > p > span').textContent = `${Math.round(100*(score / userAnswers.length))}%`;
+
+    result.classList.remove('d-none');
 });
