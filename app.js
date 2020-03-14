@@ -18,4 +18,6 @@ form.addEventListener('submit', e => {
     document.querySelector('div.result > div > p > span').textContent = `${Math.round(100*(score / userAnswers.length))}%`;
 
     result.classList.remove('d-none');
+
+    scrollTo({ top: 0, behavior: 'smooth' });
 });
